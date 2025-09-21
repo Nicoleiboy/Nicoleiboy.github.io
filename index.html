@@ -4,87 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ruge y Aprende</title>
-<!-- Fuente Poppins (estilo molde, segura en móvil) -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-
+  <!-- Fuente Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    /* Estilos de la pantalla de bienvenida */
-   .pantalla-inicio {
-  height: 100vh;
-  background: linear-gradient(135deg, #F8F3EB, #0B6A75);
-  color: #0B6A75;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-  position: relative;
-  z-index: 9999;
-  font-family: 'Poppins', sans-serif;
-}
-
-.pantalla-inicio h1 {
-  font-size: 3em;
-  margin-bottom: 30px;
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-.boton {
-  display: inline-block;
-  margin: 10px;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background-color: #0B6A75;
-  color: #F8F3EB;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.boton:hover {
-  background-color: #F8F3EB;
-  color: #0B6A75;
-  border: 1px solid #0B6A75;
-}
-    .pantalla-inicio h1 {
-      font-size: 4em;
-      margin-bottom: 30px;
-    }
-
-    
-    
-  </style>
-
 </head>
-<body>
-  <!-- Pantalla de bienvenida -->
-  <div class="pantalla-inicio" id="pantallaBienvenida">
-    <h1>¡Bienvenidos a Ruge y Aprende! </h1>
-    <button class="boton" onclick="entrarSitio()">Entrar</button>
-  </div>
-</head>
-<body>
+<body class="modo-oscuro">
+  <!-- Header -->
   <header>
-    <h1>Ruge y Aprende 🦁</h1>
+    <div class="logo">
+      <h1>Ruge y aprende</h1>
+    </div>
+     <!-- Botón hamburguesa -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+
     <nav>
-      <a href="#" onclick="mostrarPantalla('inicio')">Inicio</a>
-      <a href="#" onclick="mostrarPantalla('opiniones')">Opiniones</a>
-      <a href="#" onclick="mostrarPantalla('sindromex')">Síndrome X</a>
-      <a href="#" onclick="mostrarPantalla('soporte')">Soporte</a>
+      <ul id="menu">
+        <li><a href="#" data-target="inicio">Inicio</a></li>
+        <li><a href="#" data-target="opiniones">Opiniones</a></li>
+        <li><a href="#" data-target="sindromex">Síndrome X</a></li>
+        <li><a href="#" id="abrirRegistro" class="boton secundario">Registrarse</a></li>
+        <li><a href="#" id="abrirLogin" class="boton">Iniciar Sesión</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
-    
-
-    <!-- Sección de Entrada estilo portada -->
+    <!-- Sección de Inicio -->
     <section class="pantalla visible" id="inicio">
+  <!-- HERO / Banner principal -->
+<div class="hero">
+  <div class="hero-carrusel" id="heroCarrusel">
+    <div class="hero-slide activo">
+      <img src="20.png" alt="Explora la selva">
+    </div>
+
+    <div class="hero-slide">
+      <img src="2.png" alt="Aprende jugando">
+    </div>
+
+<div class="hero-slide">
+      <img src="1.png" alt="Aprende jugando">
+    </div>
+
+    <div class="hero-slide">
+      <img src="18.png" alt="Aventura interactiva">
+    </div>
+  </div>
+</div>
+
+
+
+
+      <!-- Contenido de inicio (tarjetas, galería, etc.) -->
       <div class="seccion tarjeta">
         <h2>¿Qué es Ruge y Aprende?</h2>
         <p>Es un juego interactivo infantil lleno de diversión y aprendizaje. Los niños conocen más sobre los animales, sus hábitats y cuidados, todo mientras juegan en un mundo mágico lleno de color.</p>
@@ -111,12 +82,12 @@
           <img src="b07ced9f-d72a-4e20-b256-26fc80937a23.jpg" alt="Imagen 1" />
           <img src="9422187e-a4ac-4443-b5c7-5cdf158f8f30.jpg" alt="Imagen 2" />
           <img src="2662933e-4729-4061-af14-7e032b249129.jpg" alt="Imagen 3" />
-          <img src="3595f66d-ce9e-498f-9016-915595a4b5ce.jpg" alt="Imagen 1" />
-          <img src="238bd7b6-0066-48c5-a908-751158b2f72a.jpg" alt="Imagen 2" />
-          <img src="57e8bdfb-7e17-48a7-a294-8bccb695cc3a.jpg" alt="Imagen 3" />
-           <img src="43e1c5f5-3779-4c7c-a1d4-8e759cdaeb0a.jpg" alt="Imagen 1" />
-          <img src="2b218d7c-4e97-46c3-87e6-9109a1cd5f14.jpg" alt="Imagen 2" />
-          <img src="dd77084d-fb03-4cc5-b2e0-e711fa017339.jpg" alt="Imagen 3" />
+          <img src="3595f66d-ce9e-498f-9016-915595a4b5ce.jpg" alt="Imagen 4" />
+          <img src="238bd7b6-0066-48c5-a908-751158b2f72a.jpg" alt="Imagen 5" />
+          <img src="57e8bdfb-7e17-48a7-a294-8bccb695cc3a.jpg" alt="Imagen 6" />
+          <img src="43e1c5f5-3779-4c7c-a1d4-8e759cdaeb0a.jpg" alt="Imagen 7" />
+          <img src="2b218d7c-4e97-46c3-87e6-9109a1cd5f14.jpg" alt="Imagen 8" />
+          <img src="dd77084d-fb03-4cc5-b2e0-e711fa017339.jpg" alt="Imagen 9" />
         </div>
       </div>
 
@@ -148,6 +119,7 @@
       </div>
     </section>
 
+    <!-- Opiniones -->
     <section class="pantalla" id="opiniones">
       <h2>🗣 Opiniones de los usuarios</h2>
       <form class="formulario-opiniones tarjeta">
@@ -157,166 +129,364 @@
         <label for="reseña">¿Qué te pareció el juego?</label>
         <textarea id="reseña" name="reseña" rows="4" required></textarea>
 
-        <label>Estrellas:</label>
-      <label for="estrellas">Estrellas:</label>
-<div class="estrellas" id="estrellasInput">
-  <span data-value="1">★</span>
-  <span data-value="2">★</span>
-  <span data-value="3">★</span>
-  <span data-value="4">★</span>
-  <span data-value="5">★</span>
-</div>
-<input type="hidden" id="estrellas" name="estrellas" value="0" required>
-
-
+        <label for="estrellas">Estrellas:</label>
+        <div class="estrellas" id="estrellasInput">
+          <span data-value="1">★</span>
+          <span data-value="2">★</span>
+          <span data-value="3">★</span>
+          <span data-value="4">★</span>
+          <span data-value="5">★</span>
+        </div>
+        <input type="hidden" id="estrellas" name="estrellas" value="0" required>
 
         <label for="mejoras">¿Qué mejorarías?</label>
         <input type="text" id="mejoras" name="mejoras" />
 
         <input type="submit" value="Enviar opinión" />
       </form>
-      <div class="tarjeta historial-opiniones">
-  <h3>📝 Opiniones anteriores</h3>
-  <div id="listaOpiniones"></div>
-</div>
 
+      <div class="tarjeta historial-opiniones">
+        <h3>📝 Opiniones anteriores</h3>
+        <div id="listaOpiniones"></div>
+      </div>
     </section>
 
+    <!-- Síndrome X -->
     <section class="pantalla" id="sindromex">
       <h2>🧬 ¿Qué es el Síndrome X?</h2>
       <div class="tarjeta">
         <p>El “Síndrome X” es una condición genética poco común que puede afectar el desarrollo de los niños. Este videojuego ha sido diseñado con apoyo de educadores y especialistas para crear un entorno seguro, respetuoso e inclusivo para todos los pequeños.</p>
         <p>Promovemos la empatía y la comprensión desde edades tempranas, integrando personajes y experiencias pensadas para incluir a todos los niños, sin importar sus capacidades.</p>
-      <img src="https://tse1.explicit.bing.net/th/id/OIP.EVIlKqVW2i2P1B8XwqcxRQHaHa?r=0&cb=thvnext&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Niño aprendiendo con tecnología" class="imagen-sindromex" />
-    
-    <h2> Características comunes en las personas con Síndrome X</h2>
-    <ul>
-        <li>Retraso en el desarrollo del habla y del lenguaje</li>
-<li>Discapacidad intelectual leve a moderada</li>
-<li>Ansiedad social o problemas para interactuar</li>
-<li>Hiperactividad y déficit de atención</li>
-<li>Conductas repetitivas (como aletear las manos o evitar el contacto visual)</li>
-<li>Sensibilidad sensorial (luces brillantes, ruidos fuertes, etc.)</li>
-<li>En algunos casos, rasgos físicos como cara alargada, orejas grandes o pies planos</li>
-    </ul>
-    
-    
-      <p>El síndrome X frágil (también conocido como Síndrome Martin-Bell) es un trastorno genético hereditario que causa discapacidad intelectual, problemas de comportamiento y desarrollo, y a veces características físicas específicas. Es causado por una mutación en el gen FMR1 del cromosoma X, y es más común en los varones, aunque también afecta a mujeres en menor medida.</p>
-    </div>
+
+        <img src="https://tse1.explicit.bing.net/th/id/OIP.EVIlKqVW2i2P1B8XwqcxRQHaHa?r=0&cb=thvnext&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Niño aprendiendo con tecnología" class="imagen-sindromex" />
+
+        <h2> Características comunes en las personas con Síndrome X</h2>
+        <ul>
+          <li>Retraso en el desarrollo del habla y del lenguaje</li>
+          <li>Discapacidad intelectual leve a moderada</li>
+          <li>Ansiedad social o problemas para interactuar</li>
+          <li>Hiperactividad y déficit de atención</li>
+          <li>Conductas repetitivas (como aletear las manos o evitar el contacto visual)</li>
+          <li>Sensibilidad sensorial (luces brillantes, ruidos fuertes, etc.)</li>
+          <li>En algunos casos, rasgos físicos como cara alargada, orejas grandes o pies planos</li>
+        </ul>
+
+        <p>El síndrome X frágil (también conocido como Síndrome Martin-Bell) es un trastorno genético hereditario que causa discapacidad intelectual, problemas de comportamiento y desarrollo, y a veces características físicas específicas. Es causado por una mutación en el gen FMR1 del cromosoma X, y es más común en los varones, aunque también afecta a mujeres en menor medida.</p>
+      </div>
     </section>
+
+    <!-- Soporte -->
     <section class="pantalla" id="soporte">
-  <div class="tarjeta">
-    <h2>🛠 Soporte y Comunidad</h2>
-    <p>¿Tienes dudas, necesitas ayuda o quieres recibir novedades?</p>
-    <p>Únete a nuestro grupo de difusión en WhatsApp y mantente en contacto con el equipo de Ruge y Aprende 🦁🎉</p>
-    <a class="boton" href="https://chat.whatsapp.com/GEwjgpzrtAN1tr2gnuU8XK" target="_blank">Unirme al grupo de WhatsApp</a>
-  </div>
-</section>
+      <div class="tarjeta">
+        <h2>🛠 Soporte y Comunidad</h2>
+        <p>¿Tienes dudas, necesitas ayuda o quieres recibir novedades?</p>
+        <p>Únete a nuestro grupo de difusión en WhatsApp y mantente en contacto con el equipo de Ruge y Aprende 🦁🎉</p>
+        <a class="boton" href="https://chat.whatsapp.com/GEwjgpzrtAN1tr2gnuU8XK" target="_blank">Unirme al grupo de WhatsApp</a>
+      </div>
+    </section>
   </main>
+
+  <!-- Modal de Registro -->
+  <div id="modalRegistro" class="modal">
+    <div class="modal-contenido">
+      <!-- Columna Imagen -->
+      <div class="modal-imagen">
+        <img src="descarga (1).jfif" alt="Imagen de registro">
+      </div>
+      <!-- Columna Formulario -->
+      <div class="modal-formulario">
+        <h2>Regístrate</h2>
+        <form id="formRegistro">
+          <label for="usuario">Usuario:</label>
+          <input type="text" id="usuario" name="usuario" required>
+
+          <label for="correo">Correo:</label>
+          <input type="email" id="correo" name="correo" required>
+
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="submit" class="boton">Registrarse</button>
+        </form>
+        <button class="boton secundario" id="cerrarRegistro">Salir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Inicio de Sesión -->
+  <div id="modalLogin" class="modal">
+    <div class="modal-contenido">
+      <div class="modal-formulario" style="width:100%">
+        <h2>Iniciar Sesión</h2>
+        <form id="formLogin">
+          <label for="loginUsuario">Usuario:</label>
+          <input type="text" id="loginUsuario" required>
+
+          <label for="loginPassword">Contraseña:</label>
+          <input type="password" id="loginPassword" required>
+
+          <button type="submit" class="boton">Entrar</button>
+        </form>
+        <button class="boton secundario" id="cerrarLogin">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón flotante único (derecha, circular) -->
+  <button id="modoToggle" class="modo-boton" aria-label="Cambiar modo" title="Cambiar modo">🌙</button>
 
   <footer>
     <p>&copy; Rugeyaprende@gmail.com | Hecho con alegría junto al Zoológico La Aurora 🐾</p>
   </footer>
 
- <script>
-  function mostrarPantalla(id) {
-    document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('visible'));
-    document.getElementById(id).classList.add('visible');
-    if (id === "opiniones") {
-      mostrarOpiniones();
-    }
-  }
+  <script>
+  (function () {
+    // helpers
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
 
-  function entrarSitio() {
-    document.getElementById('pantallaBienvenida').style.display = 'none';
-    document.getElementById('contenidoPrincipal').style.display = 'block';
-  }
+    // asegurar que los elementos existen antes de usarlos
+    const menuToggle = $('#menuToggle');
+    const menu = $('#menu');
+    const abrirLogin = $('#abrirLogin');
+    const abrirRegistro = $('#abrirRegistro');
+    const modalLogin = $('#modalLogin');
+    const modalRegistro = $('#modalRegistro');
+    const cerrarLogin = $('#cerrarLogin');
+    const cerrarRegistro = $('#cerrarRegistro');
+    const modoToggle = $('#modoToggle');
 
-  // Carrusel automático horizontal para la galería
-  const galeria = document.querySelector('.galeria');
-  let scrollAmount = 0;
-
-  setInterval(() => {
-    if (galeria) {
-      scrollAmount += 1;
-      galeria.scrollLeft = scrollAmount;
-      if (scrollAmount >= galeria.scrollWidth - galeria.clientWidth) {
-        scrollAmount = 0;
-      }
-    }
-  }, 30);
-
-  // ⭐ Estrellas interactivas
-  const estrellasInput = document.getElementById('estrellasInput');
-  const estrellasHidden = document.getElementById('estrellas');
-
-  if (estrellasInput) {
-    estrellasInput.querySelectorAll('span').forEach(estrella => {
-      estrella.addEventListener('click', () => {
-        const valor = parseInt(estrella.getAttribute('data-value'));
-        estrellasHidden.value = valor;
-
-        estrellasInput.querySelectorAll('span').forEach(e => {
-          e.classList.toggle('seleccionada', parseInt(e.getAttribute('data-value')) <= valor);
-        });
+    // 1) NAV: enlaces con data-target -> mostrar pantalla
+    $$('#menu a[data-target]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('data-target');
+        if (target) {
+          document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('visible'));
+          const el = document.getElementById(target);
+          if (el) el.classList.add('visible');
+        }
+        // cerrar menu en móvil si abierto
+        if (menu && menu.classList.contains('activo')) menu.classList.remove('activo');
       });
     });
-  }
 
-  // Guardar opinión
-  document.querySelector('.formulario-opiniones').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const nombre = document.getElementById('nombre').value;
-    const resena = document.getElementById('reseña').value;
-    const mejoras = document.getElementById('mejoras').value;
-    const estrellas = parseInt(document.getElementById('estrellas').value) || 0;
-
-    const nuevaOpinion = {
-      nombre: nombre,
-      resena: resena,
-      mejoras: mejoras,
-      fecha: new Date().toLocaleString(),
-      estrellas: estrellas
-    };
-
-    let opiniones = JSON.parse(localStorage.getItem('opiniones')) || [];
-    opiniones.push(nuevaOpinion);
-    localStorage.setItem('opiniones', JSON.stringify(opiniones));
-
-    this.reset();
-    estrellasInput.querySelectorAll('span').forEach(e => e.classList.remove('seleccionada'));
-    mostrarOpiniones();
-  });
-
-  // Mostrar historial
-  function mostrarOpiniones() {
-    const contenedor = document.getElementById('listaOpiniones');
-    contenedor.innerHTML = "";
-
-    let opiniones = JSON.parse(localStorage.getItem('opiniones')) || [];
-
-    if (opiniones.length === 0) {
-      contenedor.innerHTML = "<p>No hay opiniones aún. ¡Sé el primero en opinar!</p>";
-      return;
+    // 2) Hamburguesa
+    if (menuToggle && menu) {
+      menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('activo');
+        // accesibilidad
+        const expanded = menu.classList.contains('activo') ? 'true' : 'false';
+        menuToggle.setAttribute('aria-expanded', expanded);
+      });
     }
 
-    opiniones.reverse().forEach(op => {
-      const div = document.createElement('div');
-      div.classList.add('opinion-item');
-      div.innerHTML = `
-        <h4>${op.nombre} <span style="font-weight:normal; font-size:0.8em;">(${op.fecha})</span></h4>
-        <p><strong>Opinión:</strong> ${op.resena}</p>
-        ${op.mejoras ? `<p><strong>Mejoras:</strong> ${op.mejoras}</p>` : ""}
-        <p><strong>Estrellas:</strong> ${"★".repeat(op.estrellas)}${"☆".repeat(5 - op.estrellas)}</p>
-      `;
-      contenedor.appendChild(div);
-    });
-  }
+    // 3) HERO carrusel
+    (function initHero() {
+      const slides = Array.from(document.querySelectorAll('#heroCarrusel .hero-slide'));
+      if (!slides.length) return;
+      let idx = slides.findIndex(s => s.classList.contains('activo'));
+      if (idx < 0) idx = 0;
+      slides.forEach((s, i) => s.classList.toggle('activo', i === idx));
+      if (slides.length > 1) {
+        setInterval(() => {
+          slides[idx].classList.remove('activo');
+          idx = (idx + 1) % slides.length;
+          slides[idx].classList.add('activo');
+        }, 5000);
+      }
+    })();
 
-  // Mostrar opiniones al cargar
-  window.addEventListener('load', mostrarOpiniones);
-</script>
+    // 4) Galería auto-scroll
+    (function initGaleria() {
+      const gal = document.querySelector('.galeria');
+      if (!gal) return;
+      let pos = 0;
+      setInterval(() => {
+        pos++;
+        gal.scrollLeft = pos;
+        if (pos >= gal.scrollWidth - gal.clientWidth) pos = 0;
+      }, 30);
+    })();
+
+    // 5) Estrellas interactivas
+    (function initEstrellas() {
+      const cont = $('#estrellasInput');
+      const hidden = $('#estrellas');
+      if (!cont || !hidden) return;
+      cont.querySelectorAll('span').forEach(span => {
+        span.addEventListener('click', () => {
+          const val = parseInt(span.getAttribute('data-value'));
+          hidden.value = val;
+          cont.querySelectorAll('span').forEach(s => s.classList.toggle('seleccionada', parseInt(s.getAttribute('data-value')) <= val));
+        });
+      });
+    })();
+
+    // 6) Opiniones (guardar/mostrar)
+    (function initOpiniones() {
+      const form = $('#formOpiniones');
+      const lista = $('#listaOpiniones');
+      if (!lista) return;
+      function mostrar() {
+        lista.innerHTML = '';
+        const ops = JSON.parse(localStorage.getItem('opiniones')) || [];
+        if (!ops.length) {
+          lista.innerHTML = '<p>No hay opiniones aún. ¡Sé el primero en opinar!</p>';
+          return;
+        }
+        ops.slice().reverse().forEach(op => {
+          const div = document.createElement('div');
+          div.className = 'opinion-item';
+          div.innerHTML = `
+            <h4>${op.nombre} <span style="font-weight:normal; font-size:0.8em">(${op.fecha})</span></h4>
+            <p><strong>Opinión:</strong> ${op.resena}</p>
+            ${op.mejoras ? `<p><strong>Mejoras:</strong> ${op.mejoras}</p>` : ''}
+            <p><strong>Estrellas:</strong> ${'★'.repeat(op.estrellas)}${'☆'.repeat(5-op.estrellas)}</p>
+          `;
+          lista.appendChild(div);
+        });
+      }
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const nombre = $('#nombre').value;
+          const resena = $('#reseña').value;
+          const mejoras = $('#mejoras').value;
+          const estrellas = parseInt($('#estrellas').value) || 0;
+          const ops = JSON.parse(localStorage.getItem('opiniones')) || [];
+          ops.push({ nombre, resena, mejoras, fecha: new Date().toLocaleString(), estrellas });
+          localStorage.setItem('opiniones', JSON.stringify(ops));
+          this.reset();
+          const contEst = $('#estrellasInput');
+          if (contEst) contEst.querySelectorAll('span').forEach(s => s.classList.remove('seleccionada'));
+          mostrar();
+          // mostrar pantalla opiniones
+          document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('visible'));
+          const el = $('#opiniones');
+          if (el) el.classList.add('visible');
+        });
+      }
+      mostrar();
+      window.mostrarOpiniones = mostrar;
+    })();
+
+    // 7) MODALES: show/hide helpers
+    function showModal(modal){
+      if (!modal) return;
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+      // focus primer input
+      const first = modal.querySelector('input, textarea, button');
+      if (first) first.focus();
+      document.documentElement.style.overflow = 'hidden';
+    }
+    function hideModal(modal){
+      if (!modal) return;
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+      document.documentElement.style.overflow = '';
+    }
+
+    // asegurar que modales estén ocultos (override cualquier CSS/JS antiguo)
+    if (modalLogin) { modalLogin.style.display = 'none'; modalLogin.setAttribute('aria-hidden','true'); }
+    if (modalRegistro) { modalRegistro.style.display = 'none'; modalRegistro.setAttribute('aria-hidden','true'); }
+
+    // abrir solo al click
+    if (abrirLogin && modalLogin) {
+      abrirLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        showModal(modalLogin);
+      });
+    }
+    if (abrirRegistro && modalRegistro) {
+      abrirRegistro.addEventListener('click', (e) => {
+        e.preventDefault();
+        showModal(modalRegistro);
+      });
+    }
+
+    // cerrar con botones
+    if (cerrarLogin) cerrarLogin.addEventListener('click', () => hideModal(modalLogin));
+    if (cerrarRegistro) cerrarRegistro.addEventListener('click', () => hideModal(modalRegistro));
+
+    // click fuera del contenido
+    [modalLogin, modalRegistro].forEach(modal => {
+      if (!modal) return;
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) hideModal(modal);
+      });
+    });
+
+    // ESC para cerrar
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        [modalLogin, modalRegistro].forEach(m => { if (m && m.style.display === 'flex') hideModal(m); });
+      }
+    });
+
+    // 8) Formularios de registro / login (localStorage demo)
+    const formRegistro = $('#formRegistro');
+    if (formRegistro) {
+      formRegistro.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const usuario = $('#usuario').value;
+        const correo = $('#correo').value;
+        const password = $('#password').value;
+        const users = JSON.parse(localStorage.getItem('usuarios')) || [];
+        users.push({ usuario, correo, password });
+        localStorage.setItem('usuarios', JSON.stringify(users));
+        alert('Registro exitoso. Ahora puedes iniciar sesión.');
+        formRegistro.reset();
+        hideModal(modalRegistro);
+      });
+    }
+
+    const formLogin = $('#formLogin');
+    if (formLogin) {
+      formLogin.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const usuario = $('#loginUsuario').value;
+        const password = $('#loginPassword').value;
+        const users = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const found = users.find(u => u.usuario === usuario && u.password === password);
+        if (found) {
+          alert('¡Bienvenido, ' + usuario + '!');
+          hideModal(modalLogin);
+        } else {
+          alert('Usuario o contraseña incorrectos.');
+        }
+      });
+    }
+
+    // 9) botón modo
+    if (modoToggle) {
+      function aplicarModo(claro) {
+        document.body.classList.toggle('modo-claro', claro);
+        localStorage.setItem('modo-claro', claro ? '1' : '0');
+        modoToggle.textContent = claro ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('modo-claro');
+      if (stored !== null) aplicarModo(stored === '1');
+      else aplicarModo(document.body.classList.contains('modo-claro'));
+      modoToggle.addEventListener('click', () => aplicarModo(!document.body.classList.contains('modo-claro')));
+    }
+
+    // 10) click en enlaces del menu que no usan data-target (por si quedan)
+    $$('#menu a').forEach(a => {
+      if (!a.hasAttribute('data-target') && a.id !== 'abrirLogin' && a.id !== 'abrirRegistro') {
+        a.addEventListener('click', e => {
+          // prevenir recargas accidentales
+          e.preventDefault();
+          // cerrar menu móvil
+          if (menu) menu.classList.remove('activo');
+        });
+      }
+    });
+
+  })();
+  </script>
 
 </body>
 </html>
+

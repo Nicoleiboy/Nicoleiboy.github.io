@@ -1,231 +1,409 @@
-body {
-  background-color: #F8F3EB;
-  color: #0B6A75;
-  font-family: 'Poppins', Arial, sans-serif;
-  margin: 0;
+
+/* -------------------------
+   VARIABLES (colores)
+   ------------------------- */
+:root{
+  --verde-principal: #004d26;    /* header / fondo menú móvil */
+  --verde-claro: #4CAF50;        /* botones principales */
+  --verde-oscuro: #2E7D32;       /* hover / bordes */
+  --cafe-pastel: #d2a679;        /* botón secundario */
+  --cafe-pastel-hover: #c19566;
+
+  --fondo-oscuro: #121212;
+  --tarjeta-oscuro: #1e2620;
+  --texto-oscuro: #e8f5e9;
+
+  --fondo-claro: #f6fdf7;
+  --tarjeta-claro: #ffffff;
+  --texto-claro: #1b3c24;
 }
 
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-   background: linear-gradient(to right, #F8F3EB, #0B6A75);
-  color: #0B6A75;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
+/* =========================
+   RESETEO / GENERALES
+   ========================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background:var(--fondo-oscuro);
+  color:var(--texto-oscuro);
+  overflow-x:hidden;
+  line-height:1.5;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 24px;
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* =========================
+   LAYOUT PRINCIPAL
+   ========================= */
+main{padding:2rem 1rem;max-width:1200px;margin:0 auto}
+.pantalla{display:none}
+.pantalla.visible{display:block}
+.seccion{margin:2rem 0}
+.tarjeta{
+  background:var(--tarjeta-oscuro);
+  padding:1.5rem;
+  border-radius:10px;
+  margin-bottom:1.5rem;
+  border:1px solid var(--verde-oscuro);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.tarjeta:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.45)}
+.tarjeta h2{margin-bottom:.6rem;color:var(--verde-claro)}
+
+/* =========================
+   GALERÍA / CARRUSELES
+   ========================= */
+.carrusel .galeria{
+  display:flex;
+  gap:1rem;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:1rem 0;
+}
+.carrusel .galeria img{
+  flex:0 0 auto;
+  border-radius:8px;
+  width:200px;height:140px;object-fit:cover;
+  border:2px solid var(--verde-claro);
 }
 
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
+/* =========================
+   DETALLES / DESPLEGABLES
+   ========================= */
+details{
+  margin-top:1rem;
+  background:#2a322a;
+  padding:1rem;
+  border-radius:6px;
+}
+summary{cursor:pointer;font-weight:600;color:var(--verde-claro)}
+/* modo claro: detalles */
+body.modo-claro details{background:#f0f2eb;color:var(--texto-claro);border:1px solid #dfe6dc}
+body.modo-claro summary{color:var(--verde-oscuro)}
+
+/* =========================
+   FORMULARIOS
+   ========================= */
+form{display:flex;flex-direction:column;gap:.8rem}
+form label{font-weight:500}
+form input, form textarea{
+  padding:.6rem;border:1px solid var(--verde-oscuro);border-radius:6px;
+  font-size:1rem;background:var(--fondo-oscuro);color:var(--texto-oscuro)
+}
+form input:focus, form textarea:focus{outline:none;border-color:var(--verde-claro)}
+input[type="submit"], .boton{
+  background:var(--verde-claro);color:#fff;border:none;padding:.7rem 1.2rem;border-radius:6px;
+  cursor:pointer;font-weight:600;transition:background .2s ease;text-align:center;
+}
+input[type="submit"]:hover,.boton:hover{background:var(--verde-oscuro)}
+
+/* Botón secundario - café pastel */
+.boton.secundario{
+  background:var(--cafe-pastel);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:600;
+}
+.boton.secundario:hover{background:var(--cafe-pastel-hover)}
+
+/* =========================
+   ESTRELLAS (opiniones)
+   ========================= */
+.estrellas span{cursor:pointer;font-size:1.5rem;color:#666;transition:color .15s}
+.estrellas span.seleccionada{color:var(--verde-claro)}
+
+/* =========================
+   MODALES (responsive)
+   ========================= */
+.modal{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1500;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.modal-contenido{
+  background:var(--tarjeta-oscuro);padding:1.6rem;border-radius:12px;display:flex;gap:1.2rem;
+  max-width:900px;width:100%;border:1px solid var(--verde-oscuro);flex-wrap:wrap;
+}
+.modal-imagen{flex:1 1 40%}
+.modal-formulario{flex:1 1 55%}
+.modal-imagen img{width:100%;height:auto;border-radius:8px}
+
+/* modo claro - modales */
+body.modo-claro .modal-contenido{background:var(--tarjeta-claro);border:1px solid #A5D6A7;color:var(--texto-claro)}
+body.modo-claro form input, body.modo-claro form textarea{background:var(--tarjeta-claro);border:1px solid #A5D6A7;color:var(--texto-claro)}
+@media (max-width:768px){
+  .modal-contenido{flex-direction:column;align-items:stretch;padding:1rem}
+  .modal-imagen{order:0;width:100%}
+  .modal-formulario{width:100%}
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* =========================
+   REDES / FOOTER
+   ========================= */
+.redes{display:flex;justify-content:center;gap:1rem;margin-top:1.5rem}
+.redes img{width:40px;height:40px;object-fit:contain;filter:grayscale(100%) brightness(.9);transition:transform .15s,filter .15s}
+.redes img:hover{filter:none;transform:scale(1.08)}
+
+footer{
+  text-align:center;background:#1b1f1b;padding:1rem;margin-top:2rem;color:#A5D6A7;
 }
 
-main {
-  margin-top: 100px;
-  padding: 20px;
+/* =========================
+   MODO CLARO (ajustes globales)
+   ========================= */
+body.modo-claro{
+  background:var(--fondo-claro);
+  color:var(--texto-claro);
+}
+body.modo-claro header, body.modo-claro footer, body.modo-claro .tarjeta{
+  background:var(--tarjeta-claro);color:var(--texto-claro);border:1px solid #A5D6A7;
+}
+body.modo-claro .boton{background:var(--verde-claro);color:#fff}
+body.modo-claro .boton:hover{background:var(--verde-oscuro)}
+body.modo-claro .boton.secundario{background:#fff;color:var(--verde-oscuro);border:2px solid var(--verde-oscuro)}
+body.modo-claro .boton.secundario:hover{background:var(--verde-oscuro);color:#fff}
+
+/* =========================
+   BOTÓN FLOTANTE MODO
+   ========================= */
+.modo-boton{
+  position:fixed;right:24px;bottom:24px;width:64px;height:64px;border-radius:50%;
+  background:var(--verde-claro);color:#fff;border:none;font-size:1.6rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:1600;box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+.modo-boton:hover{background:var(--verde-oscuro);transform:scale(1.06)}
+
+/* =========================
+   CABECERA / NAVEGACION
+   ========================= */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 30px;background:var(--verde-principal);color:var(--verde-principal-texto, #fff);
+  position:sticky;top:0;z-index:1400;
+}
+header .logo h1{font-size:1.4rem;color:#fff}
+
+/* NAV DESKTOP */
+header nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;align-items:center}
+header nav ul li a{color:#fff;text-decoration:none;font-weight:600;padding:6px 10px;border-radius:6px;transition:background .12s}
+header nav ul li a:hover{background:rgba(255,255,255,.06)}
+
+/* Hacer que "Iniciar Sesión" en el header se vea como botón aunque sea <a id="abrirLogin"> */
+header nav ul li a#abrirLogin{
+  background:rgba(255,255,255,.12);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.15);
+}
+header nav ul li a#abrirLogin:hover{background:rgba(255,255,255,.18)}
+
+/* Botón hamburguesa (oculto en desktop) */
+.menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:#fff;cursor:pointer;padding:6px}
+
+/* =========================
+   HERO CARRUSEL (3120 x 1755 proporción)
+   ========================= */
+/* Structure used in your HTML:
+   <div class="hero">
+     <div class="hero-carrusel" id="heroCarrusel">
+       <div class="hero-slide activo"><img src="..."></div>
+       ...
+     </div>
+   </div>
+*/
+.hero{position:relative;width:100%;aspect-ratio:3120/1755;overflow:hidden;background:var(--verde-principal)}
+.hero-carrusel{position:relative;width:100%;height:100%}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;display:block}
+.hero-slide.activo{opacity:1;z-index:2}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Small screens: limitar altura mínima para que no quede muy pequeño */
+@media (max-width:600px){
+  .hero{aspect-ratio:16/9;height:auto;min-height:180px}
 }
 
-.pantalla {
-  display: none;
-  animation: fadeIn 0.5s ease;
+/* =========================
+   HEADER MOBILE (hamburguesa)
+   ========================= */
+@media (max-width:768px){
+  header{padding:12px 18px}
+
+  /* Mostrar hamburguesa */
+  .menu-toggle{display:block}
+
+  /* Nav colapsado: usamos max-height para animar */
+  header nav ul{
+    position:fixed; /* lo ponemos fijo para que ocupe todo el ancho fácilmente */
+    top:58px; right:0;
+    width:100%;
+    max-height:0;
+    overflow:hidden;
+    flex-direction:column;
+    background:var(--verde-principal);
+    transition:max-height .28s ease;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    z-index:1350;
+    padding:0;
+  }
+
+  /* items */
+  header nav ul li{list-style:none;border-top:1px solid rgba(255,255,255,.04)}
+  header nav ul li a{display:block;padding:14px 18px;color:#fff}
+
+  /* Cuando esté abierto (tu JS debe añadir la clase 'activo' al ul) */
+  header nav ul.activo{max-height:420px} /* suficiente para varios items */
+
+  /* Asegurar que el login-boton se vea igual en móvil */
+  header nav ul li a#abrirLogin{margin:10px auto;width:90%;text-align:center}
 }
 
-.pantalla.visible {
-  display: block;
+/* =========================
+   ÚTILES: evitar duplicados y asegurar compatibilidad
+   ========================= */
+/* detalles estilo general (una sola definición) */
+details{border-radius:8px;padding:10px;margin:10px 0;cursor:pointer}
+body:not(.modo-claro) details{background:#2c2c2c;color:#fff}
+body.modo-claro details{background:#f9f9f9;color:#222;border:1px solid #ddd}
+summary{font-weight:600;cursor:pointer}
+body.modo-claro summary{color:#333}
+body:not(.modo-claro) summary{color:#fff}
+
+/* Small tweaks for accessibility/focus */
+a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(76,175,80,0.12);outline-offset:2px}
+
+/* fin del archivo */
+/* =========================
+   MODO CLARO (VERDES FRESCOS)
+   ========================= */
+body.modo-claro {
+  background: var(--fondo-claro);
+  color: var(--texto-claro);
 }
 
-.tarjeta {
+/* Contenedores */
+body.modo-claro header,
+body.modo-claro footer,
+body.modo-claro .tarjeta,
+body.modo-claro .modal-contenido {
+  background: var(--tarjeta-claro);
+  color: var(--texto-claro);
+  border: 1px solid #A5D6A7; /* verde muy claro */
+}
+
+/* Hero */
+body.modo-claro .hero {
+  background: var(--verde-principal);
+}
+
+/* Textos */
+body.modo-claro h1,
+body.modo-claro h2,
+body.modo-claro h3 {
+  color: var(--verde-oscuro);
+}
+body.modo-claro p {
+  color: #2c3e2f;
+}
+
+/* Formularios */
+body.modo-claro form input,
+body.modo-claro form textarea {
+  background: var(--tarjeta-claro);
+  border: 1px solid #A5D6A7;
+  color: var(--texto-claro);
+}
+body.modo-claro form input:focus,
+body.modo-claro form textarea:focus {
+  border-color: var(--verde-claro);
+}
+
+/* Botones principales */
+body.modo-claro .boton,
+body.modo-claro input[type="submit"] {
+  background: var(--verde-claro);
+  color: #fff;
+  border: none;
+}
+body.modo-claro .boton:hover,
+body.modo-claro input[type="submit"]:hover {
+  background: var(--verde-oscuro);
+}
+
+/* Botón secundario café pastel */
+body.modo-claro .boton.secundario {
   background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin-bottom: 20px;
+  border: 2px solid var(--cafe-pastel);
+  color: var(--cafe-pastel-hover);
 }
-
-.tarjeta:hover {
-  transform: scale(1.01);
-  transition: transform 0.2s ease;
-}
-
-.redes img:hover {
-  filter: grayscale(0%);
-}
-
-.galeria {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-}
-
-.galeria img {
-  height: 150px;
-  border-radius: 15px;
-  transition: transform 0.3s;
-}
-
-.galeria img:hover {
-  transform: scale(1.1);
-   transform: scale(1.1);
-  box-shadow: 0 0 10px #0B6A75;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-   background-color: #F8F3EB;
-  color: #0B6A75;
-  margin-top: 40px;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-/* 🎨 NUEVO ESTILO CUTE para tarjetas/secciones */
-.tarjeta, .seccion {
-   background: #fff;
-  border: 2px solid #0B6A75;
-  color: #0B6A75;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.tarjeta:hover {
-  transform: scale(1.01);
-  transition: transform 0.2s ease;
-}
-
-.tarjeta h2,
-.seccion h2 {
-  color: #0B6A75;
-}
-
-/* 🌈 Estilo cute para <details> desplegables */
-.desplegable details {
-  border: 2px solid #0B6A75;
-  background-color: #F8F3EB;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.desplegable summary {
-  background-color: #0B6A75;
-  color: #fff;
-  padding: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  list-style: none;
-  user-select: none;
-}
-
-.desplegable details[open] summary {
-  border-bottom: 1px solid #ccc;
-}
-
-.desplegable details p {
-  padding: 15px;
-  margin: 0;
-  background-color: #fff;
-  color: #333;
-}
-
-.imagen-sindromex {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-* {
-  font-style: normal !important;
-}
-
-.galeria {
-  scroll-behavior: smooth;
-}
-
-.boton {
-  background-color: #0B6A75;
+body.modo-claro .boton.secundario:hover {
+  background: var(--cafe-pastel);
   color: #fff;
 }
 
-.boton:hover {
-  background-color: #F8F3EB;
-  color: #0B6A75;
-  border: 1px solid #0B6A75;
+/* Details desplegables */
+body.modo-claro details {
+  background: #f9fdf9;
+  border: 1px solid #d9ead7;
+  color: var(--texto-claro);
+}
+body.modo-claro summary {
+  color: var(--verde-oscuro);
 }
 
-.redes img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  filter: grayscale(100%) brightness(0.8) sepia(0.2) hue-rotate(160deg);
-  transition: 0.3s;
+/* Nav */
+body.modo-claro header nav ul li a {
+  color: var(--verde-oscuro);
+}
+body.modo-claro header nav ul li a:hover {
+  background: rgba(76, 175, 80, 0.12);
+  border-radius: 6px;
 }
 
-.redes img:hover {
-  filter: none;
+/* Botón flotante */
+body.modo-claro .modo-boton {
+  background: var(--verde-claro);
+  color: #fff;
+}
+body.modo-claro .modo-boton:hover {
+  background: var(--verde-oscuro);
 }
 
-.historial-opiniones {
-  background-color: #F8F3EB;
-  border: 2px solid #0B6A75;
-  border-radius: 15px;
-  padding: 15px;
-  margin-top: 20px;
+/* Footer */
+body.modo-claro footer {
+  background: #eaf5ea;
+  color: var(--verde-oscuro);
 }
-
-.opinion-item {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-}
-
-.opinion-item:last-child {
-  border-bottom: none;
-}
-
-.opinion-item h4 {
-  margin: 0 0 5px;
+/* --- BOTÓN DE INICIAR SESIÓN EN HEADER --- */
+header nav ul li a#abrirLogin {
+  background: var(--verde-claro);
+  color: #fff; /* texto blanco en todos los modos */
+  padding: 8px 14px;
+  border-radius: 6px;
   font-weight: 600;
-  color: #0B6A75;
+  transition: background 0.2s;
+}
+header nav ul li a#abrirLogin:hover {
+  background: var(--verde-oscuro);
 }
 
-.opinion-item p {
-  margin: 5px 0;
-  color: #333;
+/* --- SOPORTE --- */
+#soporte {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
 }
-
-.estrellas span {
-  font-size: 2em;
-  cursor: pointer;
-  color: #ccc;
-  transition: color 0.2s;
+#soporte .tarjeta {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
 }
-
-.estrellas span.seleccionada {
-  color: gold;
+#soporte .tarjeta h2 {
+  margin-bottom: 1rem;
 }
-
+#soporte .tarjeta p {
+  margin-bottom: 1.5rem;
+}
+#soporte .tarjeta .boton {
+  margin: 0 auto;
+  display: inline-block;
+}
